@@ -1,0 +1,18 @@
+flowchart TB
+  CS[Azure Cloud Shell / GitHub] --> CLI[Azure CLI + Bicep]
+  CLI --> P{Environment parameter file}
+  P --> D[Dev resource group]
+  P --> Q[QA resource group]
+  P --> R[Prod resource group]
+  D --> M[main.bicep modules]
+  Q --> M
+  R --> M
+  M --> N[VNet + NSG]
+  M --> S[Secure Storage Account]
+  M -. optional .-> W[App Service Plan + Node.js Web App]
+  classDef blue fill:#dbeafe,stroke:#2563eb,color:#172554
+  classDef green fill:#dcfce7,stroke:#16a34a,color:#14532d
+  classDef amber fill:#fef3c7,stroke:#d97706,color:#78350f
+  class CLI,P,M blue
+  class D,Q,R,N,S green
+  class W amber

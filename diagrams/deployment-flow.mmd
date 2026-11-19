@@ -1,0 +1,11 @@
+flowchart LR
+ A[Select subscription] --> B[Choose dev / qa / prod]
+ B --> C[Compile + Validate]
+ C --> D[What-If review]
+ D --> E{Approve?}
+ E -->|Yes| F[Deploy resource group]
+ E -->|No| G[Stop]
+ F --> H[Verify Azure resources]
+ H --> I[Repeat / Idempotency]
+ classDef step fill:#dbeafe,stroke:#2563eb,color:#172554
+ class A,B,C,D,F,H,I step

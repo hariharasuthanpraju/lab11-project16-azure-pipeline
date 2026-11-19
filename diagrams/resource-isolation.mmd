@@ -1,0 +1,9 @@
+flowchart TB
+ S[Azure Subscription] --> D[rg-lab11-p07-dev]
+ S --> Q[rg-lab11-p07-qa]
+ S --> P[rg-lab11-p07-prod]
+ D --> DN[VNet 10.41.0.0/16 + Storage LRS]
+ Q --> QN[VNet 10.42.0.0/16 + Storage LRS]
+ P --> PN[VNet 10.43.0.0/16 + Storage GRS]
+ classDef env fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e
+ class D,Q,P env
